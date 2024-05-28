@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function SongsContainer() {
     const [search, setSearch] = useState("");
-    const [filter, setFilter] = useState("")
+    const [filter, setFilter] = useState("song")
 
     return (
     <div>

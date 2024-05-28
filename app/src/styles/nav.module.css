@@ -18,6 +18,8 @@
     border-radius: 5px;
 }
 
+
+
 .btnStyle:hover {
     background-color: var(--colorBlue);
     color: var(--colWhite);
