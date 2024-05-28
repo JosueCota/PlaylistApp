@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --colorWhite: #EDEDFD;
+    --colorBlue: #4F46E6;
+    --colorGrey: #252729;
+}
+
+html {
+    font-size: 16px;
+    background-color: var(--colorGrey);
+    color: var(--colorWhite);
+  }
