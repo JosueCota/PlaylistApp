@@ -2,8 +2,8 @@ import FormContainer from "../components/FormContainer";
 import SongsList from "../components/SongsList"
 import { useEffect, useState } from "react";
 
-export default function SongsContainer() {
-    const [songs, setSongs] = useState([])
+export default function SongsContainer({ songs, setSongs, setPlaylist}) {
+
     const [accessToken, setAccessToken] = useState("");
 
     useEffect(() => {

@@ -6,12 +6,13 @@ import SongsContainer from './pages/SongsContainer';
 
 function App() {
   const [playlist, setPlaylist] = useState([]);
+  const [songs, setSongs] = useState([])
 
   return (
     <>
       <Nav/>
       <Routes>
-        <Route path="/" element={<SongsContainer/>}/>
+        <Route path="/" element={<SongsContainer songs={songs} setSongs={setSongs} setPlaylist={setPlaylist} />}/>
         <Route path="/playlist" element={<h1>Hello</h1>}/>
       </Routes>
     </>

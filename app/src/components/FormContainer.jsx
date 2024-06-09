@@ -5,6 +5,7 @@ import { useState } from "react";
 const searchEP = "https://api.spotify.com/v1/search"
 
 export default function FormContainer({accessToken, setSongs}) {
+
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState("track");
 
@@ -14,13 +15,11 @@ export default function FormContainer({accessToken, setSongs}) {
             "Content-Type": "application/json",
             "Authorization": `Bearer `+ accessToken
             }
-            };
+    };
     
     async function onSearchClick(){
         let data = await searchRequest();
-        console.log(data);
         filter === "artist" ? getArtistSongs(data): getSongs(data);
-        
     }
 
     async function searchRequest() {
@@ -32,12 +31,12 @@ export default function FormContainer({accessToken, setSongs}) {
         setSongs(prev => data.tracks.items)        
     }
 
-    async function getArtistSongs(data){
-        const artistID = data.artists.items[0].id;
+    async function getArtistSongs(searchData){
+        const artistID = searchData.artists.items[0].id;
 
-        await fetch(`https://api.spotify.com/v1/artists/${artistID}/top-tracks`, searchParams)
-            .then(response => response.json())
-            .then(data => setSongs(prev => data.tracks))
+        let resp = await fetch(`https://api.spotify.com/v1/artists/${artistID}/top-tracks`, searchParams);
+        const data = await resp.json();
+        setSongs(prev => data.tracks);
     }
 
     function onChangeFilter(e){
