@@ -1,7 +1,7 @@
 
 
-export default function PlaylistContainer(){
+export default function PlaylistContainer({playlist}){
     return (<>
-            Hello World
+            {playlist}
         </>)
 }
