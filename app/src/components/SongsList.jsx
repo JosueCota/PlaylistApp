@@ -11,7 +11,7 @@ export default function SongsList({songs}){
             <img className="rounded" src={song.album.images[0].url} />
             <div className="ml-3 w-full">
             {song.name} <br /> {song.artists.map(artist => (
-                <span>{artist.name} </span>
+                <span id={artist.id}>{artist.name} </span>
                 ))}
             </div>
             <button onClick={onClick} className="bg-white w-8 h-8 rounded-full hover:bg-opacity-50 bg-center bg-fixed plusImg self-center"></button>
