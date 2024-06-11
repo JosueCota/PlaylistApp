@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage : {
-        "plusImg" : "url('./assets/images/plus.svg')",
+        "plusImg" : "url('../assets/images/plus.svg')",
       }
     },
     colors: {

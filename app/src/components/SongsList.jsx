@@ -1,21 +1,19 @@
-import plus from "../assets/images/plus.svg"
+import Song from "./Song";
 export default function SongsList({songs}){
 
-    function onClick({target}){
+    function handleClick({target}){
         
     }
 
+    function formatTime(ms) {
+        const minutes = Math.floor(ms/1000/60);
+        let seconds = (Math.floor(ms/1000)%60).toString()
+        if (seconds.length=== 1) {
+            seconds = seconds + "0";
+        }
+        return (`${minutes}:${seconds}`);
+    }
     return (<ul className="mx-1">
-        {songs.map(song => 
-        (<li key={song.id} className="flex h-20 my-5 overflow-hidden bg-black bg-opacity-20 px-3 py-1 rounded-lg">
-            <img className="rounded" src={song.album.images[0].url} />
-            <div className="ml-3 w-full">
-            {song.name} <br /> {song.artists.map(artist => (
-                <span id={artist.id}>{artist.name} </span>
-                ))}
-            </div>
-            <button onClick={onClick} className="bg-white w-8 h-8 rounded-full hover:bg-opacity-50 bg-center bg-fixed plusImg self-center"></button>
-        </li>
-        ))}
+        {songs.map(song => (<Song song={song} format={formatTime} onClick={handleClick}/>))}
     </ul>)
 }

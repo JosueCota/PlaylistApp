@@ -1,6 +1,7 @@
+import FilterBtnContainer from "./FilterBtnContainer";
 
 
-export default function SearchContainer({search, setSearch, onClick}){
+export default function SearchContainer({search, setSearch, onClick, onChangeFilter}){
 
     function handleKeyUp(event){
         if (event.key === "Enter"){
@@ -9,13 +10,14 @@ export default function SearchContainer({search, setSearch, onClick}){
     }
 
     return (
-        <>
-            <div className="flex w-full mx-auto py-1 justify-center bg-black h-10">
-                <input className="bg-white text-black w-3/4 rounded-l p-1" type="text" value={search} onChange={e=>setSearch(e.target.value)} onKeyUp={handleKeyUp}/>
-                <button className="bg-white text-black rounded-r p-1 bg-opacity-80" onClick={onClick}>Search</button>
+        <div className="bg-white bg-opacity-80 py-2">
+            <h1 className="text-black text-center font-bold text-lg">QuickTrack</h1>
+            <div className="flex w-full mx-auto py-1 justify-center  h-10">
+                <input className="bg-white text-black w-3/4 rounded-l p-1 border" type="text" value={search} onChange={e=>setSearch(e.target.value)} onKeyUp={handleKeyUp}/>
+                <button className="bg-white text-black rounded-r p-1 bg-opacity-80 border" onClick={onClick}>Search</button>
             </div>
-            <h3 className="text-center mt-2">Search By</h3>
-        </>
+            <FilterBtnContainer onChange={onChangeFilter}/>
+        </div>
     )
 
 }

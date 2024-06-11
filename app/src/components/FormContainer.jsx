@@ -18,8 +18,12 @@ export default function FormContainer({accessToken, setSongs}) {
     };
     
     async function onSearchClick(){
-        let data = await searchRequest();
-        filter === "artist" ? getArtistSongs(data): getSongs(data);
+        if (search) {
+            let data = await searchRequest();
+            filter === "artist" ? getArtistSongs(data): getSongs(data);
+        } else {
+            throw ("Empty Search Field")
+        }
     }
 
     async function searchRequest() {
@@ -45,9 +49,7 @@ export default function FormContainer({accessToken, setSongs}) {
 
     return (
         <div className="w-full flex flex-col mx-auto">
-            <SearchContainer search={search} setSearch={setSearch} onClick={onSearchClick}/>
-            
-            <FilterBtnContainer onChange={onChangeFilter}/>
+            <SearchContainer search={search} setSearch={setSearch} onClick={onSearchClick} onChangeFilter={onChangeFilter}/>
         </div>
     )
 }
