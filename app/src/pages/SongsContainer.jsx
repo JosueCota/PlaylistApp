@@ -1,28 +1,20 @@
 import FormContainer from "../components/FormContainer";
 import SongsList from "../components/SongsList"
-import { useEffect, useState } from "react";
 
-export default function SongsContainer({ songs, setSongs, setPlaylist}) {
+export default function SongsContainer({ songs, setSongs, setPlaylist, accessToken}) {
 
-    const [accessToken, setAccessToken] = useState("");
+    function onAddClick(song) {
+        setPlaylist(prev => (
+            [...prev, song]       
+        ))
 
-    useEffect(() => {
-        const authParams = {
-            method: "POST",
-            headers: {
-                "Content-Type": `application/x-www-form-urlencoded`
-            },
-            body: `grant_type=client_credentials&client_id=${import.meta.env.VITE_CLIENT_ID}&client_secret=${import.meta.env.VITE_CLIENT_SECRET}`
-        }
-        fetch(`https://accounts.spotify.com/api/token`, authParams)
-            .then(result => result.json())
-            .then(data => setAccessToken(data.access_token))
-    }, [])
+        console.log("Added " + song.name)
+    }
 
     return (
     <div>
         <FormContainer accessToken={accessToken} setSongs={setSongs}/>
 
-        <SongsList songs={songs}/>
+        <SongsList songs={songs} onClick={onAddClick}/>
     </div>)
 }

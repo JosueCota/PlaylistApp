@@ -1,9 +1,5 @@
 import Song from "./Song";
-export default function SongsList({songs}){
-
-    function handleClick({target}){
-        
-    }
+export default function SongsList({songs, onClick}){
 
     function formatTime(ms) {
         const minutes = Math.floor(ms/1000/60);
@@ -14,6 +10,6 @@ export default function SongsList({songs}){
         return (`${minutes}:${seconds}`);
     }
     return (<ul className="mx-1">
-        {songs.map(song => (<Song song={song} format={formatTime} onClick={handleClick}/>))}
+        {songs.map(song => (<Song key={song.id+"song"} song={song} format={formatTime} onClick={onClick} onSong={true}/>))}
     </ul>)
 }

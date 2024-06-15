@@ -1,5 +1,4 @@
 import SearchContainer from "./SearchContainer";
-import FilterBtnContainer from "./FilterBtnContainer";
 import { useState } from "react";
 
 const searchEP = "https://api.spotify.com/v1/search"
