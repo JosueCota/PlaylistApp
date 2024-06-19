@@ -33,7 +33,7 @@ function App() {
       <Nav/>
       <Routes>
         <Route path="/" element={<SongsContainer songs={songs} setSongs={setSongs} setPlaylist={setPlaylist}  accessToken={accessToken}/>}/>
-        <Route path="/playlist" element={<PlaylistContainer playlist={playlist} accessToken={accessToken}/>}/>
+        <Route path="/playlist" element={<PlaylistContainer playlist={playlist} accessToken={accessToken} setPlaylist={setPlaylist} setSongs={setSongs}/>}/>
       </Routes>
     </>
   )

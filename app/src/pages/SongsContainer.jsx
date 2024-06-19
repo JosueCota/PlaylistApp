@@ -7,7 +7,9 @@ export default function SongsContainer({ songs, setSongs, setPlaylist, accessTok
         setPlaylist(prev => (
             [...prev, song]       
         ))
-
+        setSongs(prev => prev.filter(s => {
+            return s.id !== song.id
+        }))
         console.log("Added " + song.name)
     }
 
