@@ -48,7 +48,7 @@ export default function FormContainer({accessToken, setSongs}) {
 
     return (
         <div className="w-full flex flex-col mx-auto">
-            <SearchContainer search={search} setSearch={setSearch} onClick={onSearchClick} onChangeFilter={onChangeFilter}/>
+            <SearchContainer inp={search} setInp={setSearch} onClick={onSearchClick} onChangeFilter={onChangeFilter} placeholder={"Search Song"} btnText="Search"/>
         </div>
     )
 }
