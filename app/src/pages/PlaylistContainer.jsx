@@ -71,7 +71,7 @@ export default function PlaylistContainer({playlist, accessToken, setPlaylist, s
     }
     return (
         <>
-            <SearchContainer onClick={makePlaylist} inp={playlistName} setInp={setPlaylistName} placeholder="Create Playlist" btnText="Create"/>
+            <SearchContainer onClick={makePlaylist} inp={playlistName} setInp={setPlaylistName} placeholder="Playlist Name" btnText="Create" tip={"Create Playlist"}/>
             <SongsList onClick={onClickRemove} formatTime={null} addBtn={false} songs={playlist} />
         </>
            

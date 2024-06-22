@@ -1,40 +1,52 @@
 
 .navCont {
-    background-color: var(--colorGrey);
+    background-color: #222;
     border-top: 1px var(--colorGreen) solid;
     padding: 15px;
-    display: flex;
+    display: inline-flex;
     width: 100%;
     flex-flow: row wrap;
     position: fixed;
     bottom: 0;
-    justify-content: center;
+    
+    justify-content: space-between;
 }
 
 .btnStyle {
-    width: 30%;
+    width: 25%;
     text-align: center;
     background-color: var(--colorWhite);
     color: var(--colorBlue);
-    padding: 5px 10px;
-    margin:0px 20px;
-    border-radius: 5px;
+    padding: 1%;
+    border-radius: 15px;
 }
 
-@media only screen and (min-width:768px){
-    .btnStyle {
-        margin: 0px 50px;
-    }
+.btnContainer {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-@media screen and (min-width:1024px) {
+@media only screen and (min-width:1024px) {
     .navCont {
         position: relative;
         top: 0px;
         border: none;
+        justify-content: center;
     }
     .btnStyle {
-        background-color: none;
+        background: none;
+        color: white;
+        width: fit-content;
+        margin: 0px 50px;
+    }
+    .btnStyle img {
+        filter:invert();
+    }
+
+    .btnContainer+.btnContainer::before {
+        content: "|";
     }
 }
 
