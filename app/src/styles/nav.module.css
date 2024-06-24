@@ -2,18 +2,18 @@
 .navCont {
     background-color: #222;
     border-top: 1px var(--colorGreen) solid;
-    padding: 15px;
+    padding: 5px;
     display: inline-flex;
     width: 100%;
     flex-flow: row wrap;
     position: fixed;
     bottom: 0;
-    
-    justify-content: space-between;
+    z-index: 11;
+    justify-content: space-around;
 }
 
 .btnStyle {
-    width: 25%;
+    width: 20%;
     text-align: center;
     background-color: var(--colorWhite);
     color: var(--colorBlue);

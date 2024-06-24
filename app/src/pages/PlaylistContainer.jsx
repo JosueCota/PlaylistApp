@@ -15,8 +15,6 @@ export default function PlaylistContainer({playlist, accessToken, setPlaylist, s
         setPlaylist(prev => prev.filter(s => {
             return song.id !== s.id
         }))
-
-        setSongs(prev => [song, ...prev])
     }
 
     async function makePlaylist(e) {
