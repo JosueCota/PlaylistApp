@@ -8,7 +8,7 @@ import PlaylistContainer from "./pages/PlaylistContainer"
 function App() {
   const [playlist, setPlaylist] = useState([]);
   const [songs, setSongs] = useState([])
-
+  const [authCode, setAuthCode] = useState("");
   const [accessToken, setAccessToken] = useState("");
 
     useEffect(() => {
