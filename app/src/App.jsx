@@ -6,9 +6,14 @@ import SongsContainer from './pages/SongsContainer';
 import PlaylistContainer from "./pages/PlaylistContainer"
 
 function App() {
+  //Holds playlist items
   const [playlist, setPlaylist] = useState([]);
+  //Holds search result songs
   const [songs, setSongs] = useState([])
+  //Passed to Nav where login button is, return will set authCode? Used in create playlist page
+  //Required for requests for UserInfo in SpotifyAPI
   const [authCode, setAuthCode] = useState("");
+  //Required for requests to SpotifyAPI
   const [accessToken, setAccessToken] = useState("");
 
     useEffect(() => {
